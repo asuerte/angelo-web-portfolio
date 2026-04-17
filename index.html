@@ -1,0 +1,1394 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Angelo Suerte | Shopify & WordPress Developer — Sydney</title>
+		<meta
+			name="description"
+			content="Shopify and WordPress developer based in Sydney, Australia. I build high-converting websites for ecommerce brands and service businesses."
+		/>
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+		<style>
+			:root {
+				--emerald: #10b981;
+				--emerald-dim: rgba(16, 185, 129, 0.12);
+				--bg: #07080d;
+				--surface: #0f1118;
+				--surface-2: #161a25;
+				--border: rgba(255, 255, 255, 0.07);
+				--muted: #6b7280;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				background: var(--bg);
+				overflow-x: hidden;
+				font-family: 'DM Sans', sans-serif;
+			}
+			html {
+				scroll-behavior: smooth;
+				overflow-x: hidden;
+			}
+			h1,
+			h2,
+			h3,
+			.syne {
+				font-family: 'Syne', sans-serif;
+			}
+
+			nav {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 100;
+				padding: 16px 20px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				background: rgba(7, 8, 13, 0.75);
+				backdrop-filter: blur(16px);
+				border-bottom: 1px solid var(--border);
+			}
+			@media (min-width: 769px) {
+				nav {
+					padding: 18px 40px;
+				}
+			}
+			.nav-logo {
+				font-family: 'Syne', sans-serif;
+				font-weight: 800;
+				font-size: 1.1rem;
+				color: white;
+			}
+			.nav-logo span {
+				color: var(--emerald);
+			}
+			.nav-links {
+				display: flex;
+				gap: 32px;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.nav-links a {
+				color: var(--muted);
+				text-decoration: none;
+				font-size: 0.9rem;
+				font-weight: 500;
+				transition: color 0.2s;
+			}
+			.nav-links a:hover {
+				color: white;
+			}
+			.nav-cta {
+				background: var(--emerald) !important;
+				color: #000 !important;
+				padding: 8px 20px;
+				border-radius: 8px;
+				font-weight: 700 !important;
+			}
+			.hamburger {
+				display: none;
+				flex-direction: column;
+				gap: 5px;
+				cursor: pointer;
+				padding: 6px;
+				background: none;
+				border: none;
+				z-index: 201;
+			}
+			.hamburger span {
+				display: block;
+				width: 22px;
+				height: 2px;
+				background: white;
+				border-radius: 2px;
+				transition: all 0.3s;
+			}
+			@media (max-width: 480px) {
+				.btn-primary,
+				.btn-secondary {
+					padding: 12px 22px;
+					font-size: 0.9rem;
+				}
+				.badge {
+					font-size: 0.7rem;
+					padding: 5px 10px;
+				}
+				.skill-card {
+					padding: 20px;
+				}
+				.project-card .p-7 {
+					padding: 20px;
+				}
+				.contact-card {
+					padding: 24px 16px;
+				}
+				.cursor-glow {
+					display: none;
+				}
+			}
+
+			.hero-glow {
+				position: absolute;
+				width: 800px;
+				height: 800px;
+				background: radial-gradient(
+					circle,
+					rgba(99, 102, 241, 0.5) 0%,
+					rgba(99, 102, 241, 0.15) 40%,
+					transparent 70%
+				);
+				filter: blur(120px);
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 0;
+			}
+			.hero-glow-2 {
+				position: absolute;
+				width: 400px;
+				height: 400px;
+				background: radial-gradient(
+					circle,
+					rgba(16, 185, 129, 0.3) 0%,
+					transparent 70%
+				);
+				filter: blur(100px);
+				top: 30%;
+				left: 65%;
+				transform: translate(-50%, -50%);
+				z-index: 0;
+			}
+
+			.badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				background: var(--emerald-dim);
+				border: 1px solid rgba(16, 185, 129, 0.3);
+				color: var(--emerald);
+				font-size: 0.8rem;
+				font-weight: 500;
+				padding: 6px 14px;
+				border-radius: 100px;
+				margin-bottom: 28px;
+			}
+			.badge-dot {
+				width: 6px;
+				height: 6px;
+				background: var(--emerald);
+				border-radius: 50%;
+				animation: pulse 2s infinite;
+			}
+			@keyframes pulse {
+				0%,
+				100% {
+					opacity: 1;
+					transform: scale(1);
+				}
+				50% {
+					opacity: 0.5;
+					transform: scale(0.8);
+				}
+			}
+
+			.gradient-text {
+				background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #10b981 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			.btn-primary {
+				background: var(--emerald);
+				color: #000;
+				padding: 14px 32px;
+				border-radius: 10px;
+				font-weight: 700;
+				font-family: 'Syne', sans-serif;
+				text-decoration: none;
+				transition: all 0.2s;
+				box-shadow: 0 0 30px rgba(16, 185, 129, 0.35);
+				display: inline-block;
+			}
+			.btn-primary:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 0 50px rgba(16, 185, 129, 0.5);
+			}
+			.btn-secondary {
+				border: 1px solid var(--border);
+				color: #ccc;
+				padding: 14px 32px;
+				border-radius: 10px;
+				font-weight: 500;
+				text-decoration: none;
+				transition: all 0.2s;
+				display: inline-block;
+				background: rgba(255, 255, 255, 0.03);
+			}
+			.btn-secondary:hover {
+				background: rgba(255, 255, 255, 0.07);
+				color: white;
+			}
+
+			.stats-bar {
+				display: flex;
+				justify-content: center;
+				gap: 60px;
+				flex-wrap: wrap;
+				padding: 40px 0;
+				border-top: 1px solid var(--border);
+				border-bottom: 1px solid var(--border);
+			}
+			.stat-number {
+				font-family: 'Syne', sans-serif;
+				font-size: 2rem;
+				font-weight: 800;
+				color: white;
+				line-height: 1;
+			}
+			.stat-label {
+				font-size: 0.8rem;
+				color: var(--muted);
+				margin-top: 6px;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
+
+			.skill-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 14px;
+				padding: 28px;
+				transition: all 0.3s;
+			}
+			.skill-card:hover {
+				background: var(--surface-2);
+				border-color: rgba(16, 185, 129, 0.25);
+				transform: translateY(-4px);
+			}
+			.skill-icon {
+				width: 44px;
+				height: 44px;
+				background: var(--emerald-dim);
+				border-radius: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 16px;
+			}
+
+			.project-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				overflow: hidden;
+				transition: all 0.3s;
+			}
+			.project-card:hover {
+				border-color: rgba(16, 185, 129, 0.25);
+				transform: translateY(-6px);
+				box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+			}
+			.project-card img {
+				transition: transform 0.5s ease;
+				display: block;
+				width: 100%;
+			}
+			.project-card:hover img {
+				transform: scale(1.04);
+			}
+			.project-tag {
+				font-size: 0.72rem;
+				padding: 4px 10px;
+				border-radius: 6px;
+				background: rgba(255, 255, 255, 0.06);
+				color: #9ca3af;
+				font-weight: 500;
+			}
+
+			.process-step {
+				position: relative;
+				padding: 32px;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 14px;
+			}
+			.step-number {
+				font-family: 'Syne', sans-serif;
+				font-size: 3rem;
+				font-weight: 800;
+				color: rgba(255, 255, 255, 0.05);
+				position: absolute;
+				top: 16px;
+				right: 24px;
+				line-height: 1;
+			}
+
+			.tech-scroll {
+				overflow: hidden;
+				position: relative;
+				mask-image: linear-gradient(
+					to right,
+					transparent,
+					black 15%,
+					black 85%,
+					transparent
+				);
+				-webkit-mask-image: linear-gradient(
+					to right,
+					transparent,
+					black 15%,
+					black 85%,
+					transparent
+				);
+			}
+			.tech-track {
+				display: flex;
+				gap: 50px;
+				width: max-content;
+				animation: scrollTech 25s linear infinite;
+			}
+			.tech-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				color: #6b7280;
+				font-size: 13px;
+				gap: 8px;
+				transition: color 0.2s;
+			}
+			.tech-item i {
+				font-size: 36px;
+			}
+			.tech-item img {
+				width: 36px;
+			}
+			.tech-item:hover {
+				color: #d1d5db;
+			}
+			@keyframes scrollTech {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+
+			.about-highlight {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				padding: 18px 22px;
+				display: flex;
+				align-items: flex-start;
+				gap: 14px;
+			}
+			.about-icon {
+				width: 36px;
+				height: 36px;
+				border-radius: 8px;
+				background: var(--emerald-dim);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+			}
+
+			.contact-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 20px;
+				padding: 60px;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+			}
+			.contact-glow {
+				position: absolute;
+				width: 500px;
+				height: 500px;
+				background: radial-gradient(
+					circle,
+					rgba(16, 185, 129, 0.1) 0%,
+					transparent 70%
+				);
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				pointer-events: none;
+			}
+
+			.cursor-glow {
+				position: fixed;
+				width: 200px;
+				height: 200px;
+				background: radial-gradient(
+					circle,
+					rgba(16, 185, 129, 0.07),
+					transparent 70%
+				);
+				pointer-events: none;
+				transform: translate(-50%, -50%);
+				z-index: 0;
+			}
+			.section-label {
+				font-size: 0.75rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--emerald);
+				font-weight: 600;
+				margin-bottom: 12px;
+				display: block;
+			}
+
+			@media (max-width: 768px) {
+				nav {
+					padding: 14px 20px;
+				}
+				.nav-links {
+					display: none;
+				}
+				.hamburger {
+					display: flex !important;
+				}
+				.contact-card {
+					padding: 28px 20px;
+				}
+				.stats-bar {
+					gap: 24px;
+				}
+				.hero-glow {
+					width: 350px;
+					height: 350px;
+				}
+				.hero-glow-2 {
+					display: none;
+				}
+				.about-highlight {
+					padding: 14px 16px;
+				}
+				.process-step {
+					padding: 20px;
+				}
+				.step-number {
+					font-size: 2rem;
+				}
+				.mobile-menu {
+					display: none;
+					flex-direction: column;
+					position: fixed;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: rgba(7, 8, 13, 0.98);
+					z-index: 200;
+					align-items: center;
+					justify-content: center;
+					gap: 36px;
+				}
+				.mobile-menu.open {
+					display: flex;
+				}
+				.mobile-menu a {
+					font-family: 'Syne', sans-serif;
+					font-size: 1.8rem;
+					font-weight: 800;
+					color: white;
+					text-decoration: none;
+				}
+				.mobile-menu a:hover {
+					color: var(--emerald);
+				}
+				.mobile-close {
+					position: absolute;
+					top: 20px;
+					right: 24px;
+					background: none;
+					border: none;
+					color: white;
+					cursor: pointer;
+					padding: 8px;
+				}
+			}
+		</style>
+	</head>
+	<body class="text-white">
+		<div class="cursor-glow" id="cursorGlow"></div>
+
+		<nav>
+			<div class="nav-logo">Angelo<span>.</span></div>
+			<ul class="nav-links">
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#projects">Work</a></li>
+				<li><a href="#about">About</a></li>
+				<li>
+					<a href="mailto:angelosuerte@hotmail.com" class="nav-cta">Hire Me</a>
+				</li>
+			</ul>
+			<button class="hamburger" id="hamburger" aria-label="Open menu">
+				<span></span><span></span><span></span>
+			</button>
+		</nav>
+
+		<!-- MOBILE MENU -->
+		<div class="mobile-menu" id="mobileMenu">
+			<button class="mobile-close" id="mobileClose" aria-label="Close menu">
+				<svg
+					width="28"
+					height="28"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="white"
+					stroke-width="2"
+				>
+					<path d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</button>
+			<a href="#skills" onclick="closeMobile()">Skills</a>
+			<a href="#projects" onclick="closeMobile()">Work</a>
+			<a href="#about" onclick="closeMobile()">About</a>
+			<a
+				href="mailto:angelosuerte@hotmail.com"
+				style="color: var(--emerald) !important"
+				>Hire Me</a
+			>
+		</div>
+
+		<!-- HERO -->
+		<section
+			class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden pt-20"
+		>
+			<div class="hero-glow"></div>
+			<div class="hero-glow-2"></div>
+			<div
+				class="relative z-10 max-w-4xl mx-auto"
+				data-aos="fade-up"
+				data-aos-duration="800"
+			>
+				<div class="badge">
+					<span class="badge-dot"></span>
+					Available for remote work &middot; Sydney, Australia
+				</div>
+				<h1
+					class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-none"
+					style="letter-spacing: -0.03em"
+				>
+					<span class="gradient-text">Angelo Suerte</span>
+				</h1>
+				<p class="text-xl md:text-2xl text-gray-300 mb-4 font-light">
+					Shopify &amp; WordPress Developer
+				</p>
+				<p
+					class="max-w-2xl mx-auto text-gray-400 mb-12 text-lg leading-relaxed"
+				>
+					I don't just build websites. I build stores that sell. With a
+					background running my own ecommerce business, I understand what drives
+					conversions, not just what looks good.
+				</p>
+				<div class="flex justify-center gap-4 flex-wrap">
+					<a href="#projects" class="btn-primary">View My Work</a>
+					<a
+						href="angelo-suerte-resume.pdf"
+						target="_blank"
+						class="btn-secondary"
+						>Download Resume</a
+					>
+				</div>
+			</div>
+		</section>
+
+		<!-- STATS -->
+		<section class="px-6 py-0" data-aos="fade-up">
+			<div class="max-w-4xl mx-auto stats-bar">
+				<div class="text-center">
+					<div class="stat-number">4+</div>
+					<div class="stat-label">Years Experience</div>
+				</div>
+				<div class="text-center">
+					<div class="stat-number">10+</div>
+					<div class="stat-label">Sites Delivered</div>
+				</div>
+				<div class="text-center">
+					<div class="stat-number">2</div>
+					<div class="stat-label">Platforms Specialised</div>
+				</div>
+				<div class="text-center">
+					<div class="stat-number">100%</div>
+					<div class="stat-label">Remote Ready</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SKILLS -->
+		<section id="skills" class="py-16 md:py-28 px-6">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16" data-aos="fade-up">
+					<span class="section-label">What I Do</span>
+					<h2 class="text-3xl md:text-4xl font-extrabold">Core Skills</h2>
+				</div>
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+					<div class="skill-card" data-aos="fade-up">
+						<div class="skill-icon">
+							<svg
+								width="20"
+								height="20"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="#10b981"
+								stroke-width="2"
+							>
+								<circle cx="12" cy="12" r="10" />
+								<path d="M12 8v4l3 3" />
+							</svg>
+						</div>
+						<h3 class="font-bold text-lg mb-2">Shopify Development</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">
+							Custom theme development, Liquid templating, app integration, and
+							conversion-optimised store builds.
+						</p>
+					</div>
+					<div class="skill-card" data-aos="fade-up" data-aos-delay="80">
+						<div class="skill-icon">
+							<svg
+								width="20"
+								height="20"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="#10b981"
+								stroke-width="2"
+							>
+								<rect x="3" y="3" width="18" height="18" rx="2" />
+								<path d="M3 9h18M9 21V9" />
+							</svg>
+						</div>
+						<h3 class="font-bold text-lg mb-2">WordPress Development</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">
+							Custom themes, page builders, WooCommerce, and performance tuning
+							for business sites.
+						</p>
+					</div>
+					<div class="skill-card" data-aos="fade-up" data-aos-delay="160">
+						<div class="skill-icon">
+							<svg
+								width="20"
+								height="20"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="#10b981"
+								stroke-width="2"
+							>
+								<polyline points="16 18 22 12 16 6" />
+								<polyline points="8 6 2 12 8 18" />
+							</svg>
+						</div>
+						<h3 class="font-bold text-lg mb-2">Frontend Development</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">
+							HTML, CSS, JavaScript, Tailwind, with clean, semantic, and
+							fast-loading code across every project.
+						</p>
+					</div>
+					<div class="skill-card" data-aos="fade-up" data-aos-delay="240">
+						<div class="skill-icon">
+							<svg
+								width="20"
+								height="20"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="#10b981"
+								stroke-width="2"
+							>
+								<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+							</svg>
+						</div>
+						<h3 class="font-bold text-lg mb-2">Performance & CRO</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">
+							Speed optimisation, Core Web Vitals, and UX improvements, built to
+							convert, not just look good.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- TECH SCROLL -->
+		<section class="pb-16 px-6">
+			<div class="max-w-6xl mx-auto">
+				<p
+					class="text-center text-xs text-gray-500 uppercase tracking-widest mb-10"
+				>
+					Tech Stack
+				</p>
+				<div class="tech-scroll">
+					<div class="tech-track">
+						<div class="tech-item">
+							<i class="devicon-html5-plain colored"></i><span>HTML5</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-css3-plain colored"></i><span>CSS3</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-javascript-plain colored"></i
+							><span>JavaScript</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-tailwindcss-original colored"></i
+							><span>Tailwind</span>
+						</div>
+						<div class="tech-item">
+							<img
+								src="https://cdn.worldvectorlogo.com/logos/shopify.svg"
+							/><span>Shopify</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-wordpress-plain colored"></i
+							><span>WordPress</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-git-plain colored"></i><span>Git</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-html5-plain colored"></i><span>HTML5</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-css3-plain colored"></i><span>CSS3</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-javascript-plain colored"></i
+							><span>JavaScript</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-tailwindcss-original colored"></i
+							><span>Tailwind</span>
+						</div>
+						<div class="tech-item">
+							<img
+								src="https://cdn.worldvectorlogo.com/logos/shopify.svg"
+							/><span>Shopify</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-wordpress-plain colored"></i
+							><span>WordPress</span>
+						</div>
+						<div class="tech-item">
+							<i class="devicon-git-plain colored"></i><span>Git</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PROJECTS -->
+		<section
+			id="projects"
+			class="py-16 md:py-28 px-6"
+			style="background: var(--surface)"
+		>
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16" data-aos="fade-up">
+					<span class="section-label">Selected Work</span>
+					<h2 class="text-3xl md:text-4xl font-extrabold">Featured Projects</h2>
+					<p class="text-gray-400 mt-4 max-w-xl mx-auto">
+						Each project includes a full case study breaking down the goals,
+						approach, and results.
+					</p>
+				</div>
+				<div class="grid md:grid-cols-2 gap-8">
+					<div class="project-card" data-aos="fade-up" data-aos-delay="100">
+						<div class="overflow-hidden" style="height: 240px">
+							<a
+								href="projects/website redesign project/website-redesign-case-study.html"
+							>
+								<img
+									src="projects/website redesign project/images/hero.png"
+									style="height: 240px; object-fit: cover"
+								/>
+							</a>
+						</div>
+						<div class="p-7">
+							<div class="flex gap-2 mb-4 flex-wrap">
+								<span class="project-tag">Redesign</span
+								><span class="project-tag">UX</span
+								><span class="project-tag">Conversion</span>
+							</div>
+							<h3 class="text-xl font-bold mb-2">Website Redesign</h3>
+							<p class="text-gray-400 text-sm leading-relaxed mb-5">
+								Complete redesign focused on modern aesthetics, improved
+								usability, and a measurable uplift in conversion performance.
+							</p>
+							<a
+								href="projects/website redesign project/website-redesign-case-study.html"
+								class="text-emerald-400 hover:text-emerald-300 text-sm font-semibold flex items-center gap-2"
+								>View Case Study
+								<svg
+									width="14"
+									height="14"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="2.5"
+								>
+									<path d="M5 12h14M13 6l6 6-6 6" />
+								</svg>
+							</a>
+						</div>
+					</div>					
+					<div class="project-card" data-aos="fade-up">
+						<div class="overflow-hidden" style="height: 240px">
+							<a
+								href="projects/ecommerce project/ecommerce-business-case-study.html"
+							>
+								<img
+									src="projects/ecommerce project/images/hero.png"
+									style="height: 240px; object-fit: cover"
+								/>
+							</a>
+						</div>
+						<div class="p-7">
+							<div class="flex gap-2 mb-4 flex-wrap">
+								<span class="project-tag">Shopify</span
+								><span class="project-tag">Liquid</span
+								><span class="project-tag">Ecommerce</span
+								><span class="project-tag">CRO</span>
+							</div>
+							<h3 class="text-xl font-bold mb-2">
+								Fusion Oasis — Shopify Store
+							</h3>
+							<p class="text-gray-400 text-sm leading-relaxed mb-5">
+								Full Shopify store build with custom theme work,
+								conversion-optimised product pages, mobile-first UX, and
+								trust-building elements to drive purchases.
+							</p>
+							<a
+								href="projects/ecommerce project/ecommerce-business-case-study.html"
+								class="text-emerald-400 hover:text-emerald-300 text-sm font-semibold flex items-center gap-2"
+								>View Case Study
+								<svg
+									width="14"
+									height="14"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="2.5"
+								>
+									<path d="M5 12h14M13 6l6 6-6 6" />
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="project-card" data-aos="fade-up" data-aos-delay="100">
+						<div class="overflow-hidden" style="height: 240px">
+							<a
+								href="projects/landing page project/local-business-landing-page-case-study.html"
+							>
+								<img
+									src="projects/landing page project/images/hero.png"
+									style="height: 240px; object-fit: cover"
+								/>
+							</a>
+						</div>
+						<div class="p-7">
+							<div class="flex gap-2 mb-4 flex-wrap">
+								<span class="project-tag">WordPress</span
+								><span class="project-tag">Local SEO</span
+								><span class="project-tag">Lead Gen</span
+								><span class="project-tag">CRO</span>
+							</div>
+							<h3 class="text-xl font-bold mb-2">
+								Local Business Landing Page
+							</h3>
+							<p class="text-gray-400 text-sm leading-relaxed mb-5">
+								Sample local business landing page designed to showcase SEO and
+								conversion-focused design for a synthetic lawn installer.
+							</p>
+							<a
+								href="projects/landing page project/local-business-landing-page-case-study.html"
+								class="text-emerald-400 hover:text-emerald-300 text-sm font-semibold flex items-center gap-2"
+								>View Case Study
+								<svg
+									width="14"
+									height="14"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="2.5"
+								>
+									<path d="M5 12h14M13 6l6 6-6 6" />
+								</svg>
+							</a>
+						</div>
+					</div>					
+					<div class="project-card" data-aos="fade-up" data-aos-delay="100">
+						<div class="overflow-hidden" style="height: 240px">
+							<a
+								href="projects/service business project/service-business-case-study.html"
+							>
+								<img
+									src="projects/service business project/images/hero.png"
+									style="height: 240px; object-fit: cover"
+								/>
+							</a>
+						</div>
+						<div class="p-7">
+							<div class="flex gap-2 mb-4 flex-wrap">
+								<span class="project-tag">WordPress</span
+								><span class="project-tag">Lead Gen</span
+								><span class="project-tag">Local Business</span>
+							</div>
+							<h3 class="text-xl font-bold mb-2">
+								Local Service Business Website
+							</h3>
+							<p class="text-gray-400 text-sm leading-relaxed mb-5">
+								Demo WordPress site for a fictional Sydney lawn care business,
+								built to show how I approach local lead generation with trust
+								signals, clear CTAs, and fast load times.
+							</p>
+							<a
+								href="projects/service business project/service-business-case-study.html"
+								class="text-emerald-400 hover:text-emerald-300 text-sm font-semibold flex items-center gap-2"
+								>View Case Study
+								<svg
+									width="14"
+									height="14"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="2.5"
+								>
+									<path d="M5 12h14M13 6l6 6-6 6" />
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PROCESS -->
+		<section class="py-16 md:py-28 px-6">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16" data-aos="fade-up">
+					<span class="section-label">How I Work</span>
+					<h2 class="text-3xl md:text-4xl font-extrabold">My Process</h2>
+				</div>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="process-step" data-aos="fade-up">
+						<div class="step-number">01</div>
+						<div class="text-emerald-400 mb-4">
+							<svg
+								width="28"
+								height="28"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="1.8"
+							>
+								<path
+									d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+								/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold mb-3">Strategy First</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">
+							I start by understanding the business, the target customer, and
+							what success actually looks like before writing a single line of
+							code.
+						</p>
+					</div>
+					<div class="process-step" data-aos="fade-up" data-aos-delay="100">
+						<div class="step-number">02</div>
+						<div class="text-emerald-400 mb-4">
+							<svg
+								width="28"
+								height="28"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="1.8"
+							>
+								<polyline points="16 18 22 12 16 6" />
+								<polyline points="8 6 2 12 8 18" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold mb-3">Clean Development</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">
+							Fast, scalable, well-structured code. Whether it's Shopify Liquid
+							or a WordPress theme, everything is built for performance and easy
+							maintenance.
+						</p>
+					</div>
+					<div class="process-step" data-aos="fade-up" data-aos-delay="200">
+						<div class="step-number">03</div>
+						<div class="text-emerald-400 mb-4">
+							<svg
+								width="28"
+								height="28"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="1.8"
+							>
+								<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold mb-3">Optimise & Deliver</h3>
+						<p class="text-gray-400 text-sm leading-relaxed">
+							Speed, UX, and conversion improvements baked in from the start. I
+							make sure what's launched is actually working.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ABOUT -->
+		<section
+			id="about"
+			class="py-16 md:py-28 px-6"
+			style="background: var(--surface)"
+		>
+			<div
+				class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-20 items-center"
+			>
+				<div data-aos="fade-right">
+					<span class="section-label">About Me</span>
+					<h2 class="text-3xl md:text-4xl font-extrabold mb-6">
+						Developer who's been on the other side of the checkout
+					</h2>
+					<p class="text-gray-400 leading-relaxed mb-6">
+						I have 4+ years of experience building websites, but what actually
+						sets me apart is that I've run my own Shopify ecommerce store end to
+						end. I handled everything from theme development and Liquid
+						customisation to product setup, paid ads, and performance
+						optimisation.
+					</p>
+					<p class="text-gray-400 leading-relaxed mb-8">
+						That means when I build for an agency or client, I'm not guessing
+						what makes a store convert. I know it. I also integrate AI tools
+						like Claude and ChatGPT into my workflow for faster debugging, copy,
+						and prototyping, so I deliver more without cutting corners.
+					</p>
+					<div class="flex flex-col gap-4">
+						<div class="about-highlight">
+							<div class="about-icon">
+								<svg
+									width="16"
+									height="16"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="#10b981"
+									stroke-width="2"
+								>
+									<path
+										d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+									/>
+									<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+								</svg>
+							</div>
+							<div>
+								<div class="text-sm font-semibold text-white">
+									Based in Sydney, Australia
+								</div>
+								<div class="text-xs text-gray-500 mt-1">
+									AEST timezone · Available for AU &amp; global remote roles
+								</div>
+							</div>
+						</div>
+						<div class="about-highlight">
+							<div class="about-icon">
+								<svg
+									width="16"
+									height="16"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="#10b981"
+									stroke-width="2"
+								>
+									<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+								</svg>
+							</div>
+							<div>
+								<div class="text-sm font-semibold text-white">
+									Ran my own ecommerce store
+								</div>
+								<div class="text-xs text-gray-500 mt-1">
+									Shopify operator with real skin in the game
+								</div>
+							</div>
+						</div>
+						<div class="about-highlight">
+							<div class="about-icon">
+								<svg
+									width="16"
+									height="16"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="#10b981"
+									stroke-width="2"
+								>
+									<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+								</svg>
+							</div>
+							<div>
+								<div class="text-sm font-semibold text-white">
+									Currently available
+								</div>
+								<div class="text-xs text-gray-500 mt-1">
+									Open to remote roles, contracts &amp; agency partnerships
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-aos="fade-left">
+					<div class="bg-gray-900 rounded-2xl p-8 border border-gray-800 mb-5">
+						<p class="text-sm text-gray-500 uppercase tracking-widest mb-6">
+							What I work with daily
+						</p>
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+							<div class="flex items-center gap-3 text-sm text-gray-300">
+								<img
+									src="https://cdn.worldvectorlogo.com/logos/shopify.svg"
+									width="20"
+								/>Shopify + Liquid
+							</div>
+							<div class="flex items-center gap-3 text-sm text-gray-300">
+								<i
+									class="devicon-wordpress-plain colored"
+									style="font-size: 20px"
+								></i
+								>WordPress
+							</div>
+							<div class="flex items-center gap-3 text-sm text-gray-300">
+								<i
+									class="devicon-javascript-plain colored"
+									style="font-size: 20px"
+								></i
+								>JavaScript
+							</div>
+							<div class="flex items-center gap-3 text-sm text-gray-300">
+								<i
+									class="devicon-tailwindcss-original colored"
+									style="font-size: 20px"
+								></i
+								>Tailwind CSS
+							</div>
+							<div class="flex items-center gap-3 text-sm text-gray-300">
+								<i
+									class="devicon-html5-plain colored"
+									style="font-size: 20px"
+								></i
+								>HTML &amp; CSS
+							</div>
+							<div class="flex items-center gap-3 text-sm text-gray-300">
+								<i class="devicon-git-plain colored" style="font-size: 20px"></i
+								>Git
+							</div>
+							<div class="flex items-center gap-3 text-sm text-gray-300">
+								<svg
+									width="20"
+									height="20"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="#10b981"
+									stroke-width="2"
+								>
+									<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+								</svg>
+								CRO &amp; UX
+							</div>
+						</div>
+					</div>
+					<!-- AI TOOLS CARD -->
+					<div
+						class="rounded-2xl p-6 border"
+						style="
+							background: rgba(16, 185, 129, 0.05);
+							border-color: rgba(16, 185, 129, 0.2);
+						"
+					>
+						<div class="flex items-center gap-3 mb-5">
+							<div
+								style="
+									width: 30px;
+									height: 30px;
+									background: rgba(16, 185, 129, 0.15);
+									border-radius: 8px;
+									display: flex;
+									align-items: center;
+									justify-content: center;
+									flex-shrink: 0;
+								"
+							>
+								<svg
+									width="14"
+									height="14"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="#10b981"
+									stroke-width="2"
+								>
+									<path
+										d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+									/>
+								</svg>
+							</div>
+							<p
+								class="text-xs text-emerald-400 uppercase tracking-widest font-semibold"
+							>
+								AI-Assisted Workflow
+							</p>
+						</div>
+						<div class="flex flex-col gap-4">
+							<div class="flex items-start gap-3">
+								<div
+									style="
+										width: 22px;
+										height: 22px;
+										background: #10a37f;
+										border-radius: 5px;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										flex-shrink: 0;
+										margin-top: 1px;
+									"
+								>
+									<svg width="13" height="13" viewBox="0 0 24 24" fill="white">
+										<path
+											d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"
+										/>
+									</svg>
+								</div>
+								<div>
+									<div class="text-sm font-medium text-white">ChatGPT</div>
+									<div class="text-xs text-gray-500 mt-0.5">
+										Rapid prototyping, client copy drafts, UX brainstorming
+									</div>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<div
+									style="
+										width: 22px;
+										height: 22px;
+										background: #c96442;
+										border-radius: 5px;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										flex-shrink: 0;
+										margin-top: 1px;
+									"
+								>
+									<svg width="13" height="13" viewBox="0 0 24 24" fill="white">
+										<ellipse cx="12" cy="12" rx="6" ry="10" opacity="0.3" />
+										<ellipse cx="12" cy="12" rx="10" ry="6" opacity="0.3" />
+										<circle cx="12" cy="12" r="3" />
+									</svg>
+								</div>
+								<div>
+									<div class="text-sm font-medium text-white">Claude</div>
+									<div class="text-xs text-gray-500 mt-0.5">
+										Code debugging, review, technical problem solving
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTACT -->
+		<section class="py-16 md:py-28 px-6">
+			<div class="max-w-3xl mx-auto">
+				<div class="contact-card" data-aos="fade-up">
+					<div class="contact-glow"></div>
+					<div class="relative z-10">
+						<div class="badge" style="margin-bottom: 24px">
+							<span class="badge-dot"></span>Open to Work
+						</div>
+						<h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+							Let's Work Together
+						</h2>
+						<p class="text-gray-400 mb-10 max-w-lg mx-auto leading-relaxed">
+							Whether you're an agency looking for a reliable dev partner, or a
+							business that needs a site that actually converts, I'd love to
+							hear from you.
+						</p>
+						<div class="flex justify-center gap-4 flex-wrap">
+							<a href="mailto:angelosuerte@hotmail.com" class="btn-primary"
+								>angelosuerte@hotmail.com</a
+							>
+							<a
+								href="angelo-suerte-resume.pdf"
+								target="_blank"
+								class="btn-secondary"
+								>Download Resume</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer
+			class="text-center py-8 text-gray-600 text-sm border-t border-gray-900"
+		>
+			&copy; 2026 Angelo Suerte &middot; Sydney, Australia
+		</footer>
+
+		<script>
+			AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+
+			const hamburger = document.getElementById('hamburger');
+			const mobileMenu = document.getElementById('mobileMenu');
+			const mobileClose = document.getElementById('mobileClose');
+
+			hamburger.addEventListener('click', () => {
+				mobileMenu.classList.add('open');
+				document.body.style.overflow = 'hidden';
+			});
+
+			mobileClose.addEventListener('click', closeMobile);
+			mobileMenu.addEventListener('click', (e) => {
+				if (e.target === mobileMenu) closeMobile();
+			});
+
+			function closeMobile() {
+				mobileMenu.classList.remove('open');
+				document.body.style.overflow = '';
+			}
+			const glow = document.getElementById('cursorGlow');
+			document.addEventListener('mousemove', (e) => {
+				glow.style.left = e.clientX + 'px';
+				glow.style.top = e.clientY + 'px';
+			});
+		</script>
+	</body>
+</html>
